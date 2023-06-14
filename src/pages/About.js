@@ -1,4 +1,14 @@
+import { useState } from "react"
+import { Navigate } from "react-router-dom";
+
 export default function About() {
+    const [user, setUser] = useState('rusty');
+    
+    if(!user) {
+        return <Navigate to='/' replace={true}/>
+    }
+    
+    
     return (
         <>
           <h1>About us</h1>
@@ -12,6 +22,8 @@ export default function About() {
              ipsum' will uncover many web sites still in their infancy. Various versions
              have evolved over the years, sometimes by accident, sometimes on purpose 
              (injected humour and the like).</p>
+             
+            <button onClick={() => setUser(null)}>Log out</button>
         </>
     )
 }
